@@ -1,18 +1,17 @@
-pipeline 
+pipeline
 {
-    agent any
-    stages 
-    {
-       
-        stage('package') 
-        {
-            steps
-            
-                {
-                sh 'mvn package'
-                }
-            
-        }
-     }
-} 
-
+agent any
+stages 
+{
+stage ('package stage')
+{
+steps
+{
+withMaven (maven : 'MAVEN-HOME')
+{
+sh 'mvn package'
+}
+}
+}
+}
+}
