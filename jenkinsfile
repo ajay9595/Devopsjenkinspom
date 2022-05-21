@@ -13,7 +13,7 @@ pipeline
         {
             steps
             {
-                dir("E:\Devops\Devopsjenkins")
+                dir("E:/Devops/Devopsjenkins")
                 {
                 sh 'mvn package'
                 }
