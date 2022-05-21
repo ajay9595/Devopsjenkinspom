@@ -1,23 +1,17 @@
 pipeline 
 {
     agent any
-    tools 
-    {
-        maven "MAVEN-HOME"
-      
-    }
     stages 
     {
        
-        stage('Build') 
+        stage('package') 
         {
             steps
-            {
-                dir("E:/Devops/Devopsjenkins")
+            
                 {
                 sh 'mvn package'
                 }
-            }
+            
         }
      }
 } 
