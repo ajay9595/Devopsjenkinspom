@@ -1,39 +1,28 @@
-pipeline
-{
-  agent any
-  tools
- {
- withMaven (maven: 'MAVEN-HOME')
- }
-   stages
-  {
-    stage ('Compile')
-  {
-    steps
-   {
-       sh 'mvn compile'
+pipeline {
+    agent any
+    tools
+    {
+    withMaven (maven: 'MAVEN-HOME')
+    }
 
-   }
-   {
-    stage ('test')
-  {
-    steps
-   {
-       sh 'mvn test'
-
-   }
-  }
-  {
-    stage ('packaging')
-  {
-    steps
-   {
-       sh 'mvn package'
-
-   }
-  }
-}
-}
-  }
-}
+    stages {
+        stage('compiole') {
+            steps {
+                echo 'compiling'
+                sh 'mvn compile'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+                sh 'mvn test'
+            }
+        }
+        stage('package') {
+            steps {
+                echo 'packaging....'
+                sh 'mvn package'
+            }
+        }
+    }
 }
