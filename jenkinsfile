@@ -7,7 +7,7 @@ steps
  {
       withMaven (maven: 'MAVEN-HOME')
 {
-sh 'mvn compile'
+bat 'mvn compile'
 }
 }
 }
@@ -17,7 +17,7 @@ sh 'mvn compile'
       withMaven (maven: 'MAVEN-HOME')
       {
                 echo 'Testing..'
-                sh 'mvn test'
+                bat 'mvn test'
             }
         }
         }
@@ -28,7 +28,7 @@ sh 'mvn compile'
       withMaven (maven: 'MAVEN-HOME')
       {
                 echo 'Testing..'
-                sh 'mvn package'
+                bat 'mvn package'
             }
         }
         }
