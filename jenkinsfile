@@ -1,0 +1,39 @@
+pipeline
+{
+  agent any
+  tools
+ {
+ withMaven (maven: 'MAVEN-HOME')
+ }
+   stages
+  {
+    stage ('Compile')
+  {
+    steps
+   {
+       sh 'mvn compile'
+
+   }
+   {
+    stage ('test')
+  {
+    steps
+   {
+       sh 'mvn test'
+
+   }
+  }
+  {
+    stage ('packaging')
+  {
+    steps
+   {
+       sh 'mvn package'
+
+   }
+  }
+}
+}
+  }
+}
+}
